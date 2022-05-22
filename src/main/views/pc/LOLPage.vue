@@ -221,7 +221,7 @@
 </template>
 
 <script>
-import MyDialog from '@/components/MyDialog'
+import MyDialog from '@/main/components/MyDialog'
 
 export default {
   name: 'LOLPage',
@@ -247,6 +247,7 @@ export default {
       user: {
         name: 'Howlyao',
         level: 0,
+        // icon: require('@/assets/logo.png'),
         icon: '/logo.png',
         state: '1/8 排位赛(云顶之弈)',
         rankLevel: '钻石5',

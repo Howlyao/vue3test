@@ -8,7 +8,7 @@ const routes = [
   {
     path: '/',
     name: 'MainView',
-    component: () => import(/* webpackChunkName: "about" */ '@/views/MainView.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/MainView.vue'),
     beforeEnter: (to, from, next) => {
       // ...
       if (_isMobile()) {
@@ -21,7 +21,7 @@ const routes = [
   {
     path: '/Nav',
     name: 'Nav',
-    component: () => import(/* webpackChunkName: "about" */ '@/components/HelloWorld.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../components/HelloWorld.vue')
   },
   {
     path: '/AnimationTest',
@@ -87,7 +87,10 @@ const routes = [
   {
     path: '/LOLPage',
     name: 'LOLPage',
-    component: () => import('../views/pc/LOLPage.vue')
+    component: () => import('../views/pc/LOLPage.vue'),
+    meta: {
+      title: 'LOL网页端'
+    }
   },
   {
     path: '/ScorllTest',
@@ -95,17 +98,24 @@ const routes = [
     component: () => import('../views/pc/ScorllTest.vue')
   },
   // 
-  {
-    path: '/:undefineParams(.*)*',
-    name: 'NotFound',
-    component: () => import('../views/NotFound.vue')
-  },
+  // {
+  //   path: '/:undefineParams(.*)*',
+  //   name: 'NotFound',
+  //   component: () => import('../views/NotFound.vue')
+  // },
 ]
 
 const router = createRouter({
-  // history: createWebHistory(process.env.BASE_URL),
-  history: createWebHashHistory(process.env.BASE_URL),
+  history: createWebHistory(process.env.BASE_URL),
+  // history: createWebHashHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
 })
 
 export default router

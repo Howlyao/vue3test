@@ -124,6 +124,7 @@ export default {
         callback(e.target.result)
       }
       reader.readAsDataURL(blob)
+      
     },
     // Image
     loadImage(file) {
@@ -154,6 +155,7 @@ export default {
       }
       if (!isLt2M) {
         this.$message.error('上传头像图片大小不能超过 2MB!')
+        
       }
       return isJPG && isLt2M
     },
@@ -195,5 +197,6 @@ export default {
   width: 178px;
   height: 178px;
   display: block;
+  
 }
 </style>

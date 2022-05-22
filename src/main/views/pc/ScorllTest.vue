@@ -1,3 +1,11 @@
+<!--
+ * @Author: howlyao 741368914@qq.com
+ * @Date: 2021-05-23 16:55:12
+ * @LastEditors: howlyao 741368914@qq.com
+ * @LastEditTime: 2022-05-20 15:38:36
+ * @FilePath: \vue3test\src\main\views\pc\ScorllTest.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template>
   <div>
     <ul class="ul_img">
@@ -14,11 +22,12 @@ export default {
   name: 'ScorllTest',
   mounted() {
     this.loadImage(6)
-    let scrollJudeg = this.debounce(500, this.scrollImageLoad)
+    let scrollJudge = this.debounce(500, this.scrollImageLoad)
+    // true  is  key
     window.addEventListener('scroll', function () {
       // console.log(document.documentElement.scrollTop)
-      scrollJudeg()
-    })
+      scrollJudge()
+    }, true)
   },
   data() {
     return {

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ChildS from '@/components/ChildS.vue'
+import ChildS from '@/main/components/ChildS.vue'
 // import { computed } from 'vue'
 
 export default {
